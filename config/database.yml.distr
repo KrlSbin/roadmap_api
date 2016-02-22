@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 3
+  username: username
+  host: localhost
+  port: 5432
+
+development:
+  <<: *defaults
+  database: bikemart_api_development
+
+development:
+  <<: *defaults
+  database: bikemart_api_test
