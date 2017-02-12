@@ -1,3 +1,2 @@
-ActiveAdmin.register Product do
-
+ActiveAdmin.register TodoItem, as: 'ToDo' do
 end

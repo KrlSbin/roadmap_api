@@ -106,10 +106,19 @@ ALTER SEQUENCE admin_users_id_seq OWNED BY admin_users.id;
 
 
 --
--- Name: products; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE products (
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+--
+-- Name: todo_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE todo_items (
     id integer NOT NULL,
     name character varying,
     description text,
@@ -119,10 +128,10 @@ CREATE TABLE products (
 
 
 --
--- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: todo_items_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE products_id_seq
+CREATE SEQUENCE todo_items_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -131,19 +140,10 @@ CREATE SEQUENCE products_id_seq
 
 
 --
--- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: todo_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE products_id_seq OWNED BY products.id;
-
-
---
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE schema_migrations (
-    version character varying NOT NULL
-);
+ALTER SEQUENCE todo_items_id_seq OWNED BY todo_items.id;
 
 
 --
@@ -164,7 +164,7 @@ ALTER TABLE ONLY admin_users ALTER COLUMN id SET DEFAULT nextval('admin_users_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY products ALTER COLUMN id SET DEFAULT nextval('products_id_seq'::regclass);
+ALTER TABLE ONLY todo_items ALTER COLUMN id SET DEFAULT nextval('todo_items_id_seq'::regclass);
 
 
 --
@@ -184,11 +184,11 @@ ALTER TABLE ONLY admin_users
 
 
 --
--- Name: products_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: todo_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY products
-    ADD CONSTRAINT products_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY todo_items
+    ADD CONSTRAINT todo_items_pkey PRIMARY KEY (id);
 
 
 --
@@ -244,4 +244,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160222231246');
 INSERT INTO schema_migrations (version) VALUES ('20160222233442');
 
 INSERT INTO schema_migrations (version) VALUES ('20160222233445');
+
+INSERT INTO schema_migrations (version) VALUES ('20161028143540');
 

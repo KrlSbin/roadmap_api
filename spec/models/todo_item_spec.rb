@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: products
+# Table name: todo_items
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -9,7 +9,10 @@
 #  updated_at  :datetime         not null
 #
 
-class Product < ActiveRecord::Base
-  self.table_name = 'products'
+require 'rails_helper'
 
+describe TodoItem, type: :model do
+  context "validators" do
+    it { is_expected.to validate_presence_of(:name) }
+  end
 end
