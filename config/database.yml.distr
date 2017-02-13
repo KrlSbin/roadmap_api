@@ -8,8 +8,8 @@ default: &default
 
 development:
   <<: *defaults
-  database: bikemart_api_development
+  database: roadmap_api_development
 
 development:
   <<: *defaults
-  database: bikemart_api_test
+  database: roadmap_api_test
